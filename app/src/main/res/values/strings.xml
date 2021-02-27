@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Local Weather App</string>
+    <string name="weather_icon_desc">Weather icon</string>
+    <string name="fahrenheit">°F</string>
+    <string name="today">Today</string>
+    <string name="weekly">Weekly</string>
+</resources>
