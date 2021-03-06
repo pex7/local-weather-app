@@ -3,6 +3,36 @@ package com.example.localweatherapp.model
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
+interface WeatherModel {
+    val label: String
+    val highTemp: String
+    val lowTemp: String
+}
+
+data class HourWeather(
+    private val hour: String,
+    private val temp: Double
+) : WeatherModel {
+    override val label: String
+        get() = "hh:mm"
+    override val highTemp: String
+        get() = "hh:mm"
+    override val lowTemp: String
+        get() = "hh:mm"
+}
+
+data class DayWeather(
+    private val hour: String,
+    private val temp: Double
+) : WeatherModel {
+    override val label: String
+        get() = "hh:mm"
+    override val highTemp: String
+        get() = "hh:mm"
+    override val lowTemp: String
+        get() = "hh:mm"
+}
+
 @JsonClass(generateAdapter = true)
 data class Weather(
     @Json(name = "id") val id: Int,
