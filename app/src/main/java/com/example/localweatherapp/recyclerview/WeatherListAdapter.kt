@@ -34,7 +34,7 @@ class WeatherListAdapter : ListAdapter<WeatherModel, RecyclerView.ViewHolder>(di
         val inflater = LayoutInflater.from(parent.context)
 
         return when(viewType) {
-            is R.layout.weather_list_hourly_tab -> {
+            R.layout.weather_list_hourly_tab -> {
                 val binding = WeatherListHourlyTabBinding.inflate(inflater, parent, false)
                 HourWeatherViewHolder(binding)
             }
@@ -47,7 +47,11 @@ class WeatherListAdapter : ListAdapter<WeatherModel, RecyclerView.ViewHolder>(di
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = getItem(position)
-        holder.onBind(item)
+
+        when(holder) {
+            is HourWeatherViewHolder -> holder.onBind(item)
+            is DayWeatherViewHolder -> holder.onBind(item)
+        }
     }
 
     class HourWeatherViewHolder(

@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
+import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -13,9 +14,9 @@ class LocationProvider(
     private val fusedLocationProviderClient: FusedLocationProviderClient,
     private val context: Context
 ) {
-
     @SuppressLint("MissingPermission")
     fun addOnSuccessListener(onSuccess: (Location) -> Unit) {
+        Log.i("Weather", "in LocationProvider addOnSuccessListener!")
         if (hasPermission()) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
